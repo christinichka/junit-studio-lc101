@@ -57,19 +57,34 @@ public class BalancedBracketsTest {
         assertFalse(BalancedBrackets.hasBalancedBrackets("]test["));
     }
 
-    // Test 9 Assert that bracket is place in the middle of string, "te]st", return false.
+    // Test 9 Assert that bracket is place in the middle of string, "te]st", return true.
+    @Test
+    public void middleBracketsReturnsTrue() {
+        assertTrue(BalancedBrackets.hasBalancedBrackets("te[]st"));
+    }
 
+    // Test 10 Assert that brackets are both at the beginning of the string, return false.
+    @Test
+    public void bothBracketsAtBeginningReturnsTrue() {
+        assertTrue(BalancedBrackets.hasBalancedBrackets("[]test"));
+    }
 
-    // Test 10
-
-
-    // Test 11
-
+    // Test 11 Assert that brackets are both at the end of the string, return false.
+    @Test
+    public void bothBracketsAtEndReturnsTrue() {
+        assertTrue(BalancedBrackets.hasBalancedBrackets("test[]"));
+    }
 
     // Test 12
-
+    @Test
+    public void singleBracketNoTextReturnsFalse() {
+        assertFalse(BalancedBrackets.hasBalancedBrackets("]"));
+    }
 
     // Test 13
-
+    @Test
+    public void multipleBracketPairsReturnsTrue() {
+        assertTrue(BalancedBrackets.hasBalancedBrackets("[Test] test [test test.]"));
+    }
 
 }
